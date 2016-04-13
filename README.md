@@ -46,7 +46,7 @@ f) udpServer.c -  This file acts as the UDP Server. It takes 3 input parameters 
 
 g) udpClient.c - This file acts as the UDP Client. It takes 3 input parameters from the command line - the server IP address, its port no. and the client message size in bytes. Makefile is used to create an executable from the .c file. The udpServer.o file is created after running the makefile. We can then start the server by running the running the following command in a Linux terminal: 
 
-./udpClient 127.0.0.1 9207 1024
+"./udpClient 127.0.0.1 9207 1024"
 127.0.0.1 is the server IP address, 9207 is the port no. the server starts on, 1024 is the client message size in bytes. The client first attempts to create a UDP socket for the server address specified in the command line arguments. If there is no server found at this address, an error message is printed and the client exits. Otherwise, the client records the start time at which it is going to send the message. It generates a random text string consisting of lowercase alphabets, of the length specified in the arguments. It sends this generated message to the server, and waits for an acknowledgment. Once it receives this acknowledgment, it prints it to the console. It repeats this for 30 messages. After this it records the end time for this process. The client then calculates the throughput achieved by the program using the formula
 
 Throughput = 30 * (buffer size)/(end time - start time) bytes/second.
